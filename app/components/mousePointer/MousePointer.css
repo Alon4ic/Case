@@ -1,0 +1,81 @@
+.mouse {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 45px;
+    height: 45px;
+    border-radius: 100%;
+    z-index: 999999;
+    pointer-events: none;
+    transition: transform 0.1s ease-out, opacity 0.3s ease-in-out;
+}
+
+.mouse::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 10px;
+    height: 10px;
+    border-radius: 100%;
+    background: #d7d7d7;
+    z-index: 2;
+}
+
+.mouse::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    border: 2px solid #cdcdcd;
+    background: transparent;
+}
+
+.mouse__view {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 15px;
+    height: 15px;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ccc;
+    background-color: transparent;
+    border-radius: 100%;
+    opacity: 0.7;
+}
+
+.view-visible .mouse__view {
+    opacity: 1;
+}
+
+.links-visible::after {
+    border: 2px solid #cdcdcd;
+    width: 30px;
+    height: 30px;
+    transform: translate(-50%, -50%) scale(0.5);
+    background-color: transparent;
+}
+
+.links-visible::before {
+    opacity: 0;
+}
+
+.hidden-cursor {
+    opacity: 0 !important;
+}
+
+@media (max-width: 768px) {
+    .mouse {
+        left: -10000px;
+        top: -10000px;
+    }
+}

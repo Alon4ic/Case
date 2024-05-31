@@ -1,0 +1,226 @@
+.works-block {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 79px;
+}
+.filter-buttons {
+    display: flex;
+    width: 320px;
+    background: #000;
+    border-radius: 30px;
+    padding: 15px 39px;
+}
+.filter-btn {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #000;
+    border: none;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+.filter-btn .dot {
+    display: inline-block;
+    width: 9px;
+    height: 9px;
+    background-color: white;
+    border-radius: 50%;
+    margin-right: 8px;
+    transition: background-color 0.3s ease;
+}
+.filter-btn.active {
+    text-decoration: underline;
+}
+.filter-btn.active .dot {
+    background-color: red;
+}
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    column-gap: 50px;
+}
+.portfolio-item {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    background-color: transparent;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 50px;
+}
+.portfolio-item.even {
+    flex-direction: row-reverse;
+}
+.portfolio-link {
+    width: 50%;
+}
+.portfolio-item img {
+    transition: transform 0.5s;
+}
+.description {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    height: 100%;
+}
+.skills-container {
+    max-width: 1080px;
+    margin: 0 auto;
+}
+img.fade-in {
+    animation: fadeIn 0.5s ease-in;
+}
+@keyframes fadeIn {
+    from {
+        transform: scaleX(0);
+        opacity: 0;
+    }
+    to {
+        transform: scaleX(1);
+        opacity: 1;
+    }
+}
+.block-content {
+    color: white;
+    width: 78.5%;
+    margin: 0 auto;
+}
+.block-title {
+    font-size: 30px;
+    font-weight: 600;
+    text-transform: uppercase;
+    line-height: 40px;
+    padding-bottom: 30px;
+}
+.block-text {
+    font-size: 16px;
+    line-height: 30px;
+    font-weight: 400;
+}
+.block-link {
+    width: 156px;
+    display: flex;
+    justify-content: space-between;
+    background-color: transparent;
+    align-items: center;
+    text-transform: uppercase;
+    margin-top: 40px;
+}
+.work-show {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+.work-show--btn {
+    display: flex;
+    width: 135px;
+    justify-content: space-between;
+    background-color: transparent;
+    align-items: center;
+    text-transform: uppercase;
+}
+@media (max-width: 1024px) {
+    .block-title {
+        font-size: 24px;
+        font-weight: 600;
+        text-transform: uppercase;
+        line-height: 23px;
+        padding-bottom: 20px;
+    }
+    .block-text {
+        font-size: 14px;
+        line-height: 24px;
+        font-weight: 300;
+    }
+    .block-link {
+        font-size: 16px;
+        margin-top: 25px;
+    }
+}
+@media (max-width: 768px) {
+    .works-top {
+        padding-top: 30px;
+    }
+    .works-desc {
+        font-size: 18px;
+        line-height: 24px;
+        margin-bottom: 30px;
+    }
+    .works-title {
+        font-size: 40px;
+        line-height: 60px;
+    }
+    .portfolio-grid {
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+    .portfolio-item {
+        display: block;
+        margin-bottom: 50px;
+    }
+    .portfolio-item.even {
+        flex-direction: none;
+    }
+    .portfolio-link {
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+    .description {
+        width: 100%;
+        padding: 10px;
+        margin: 0;
+        height: auto;
+        text-align: center;
+    }
+    .block-text {
+        margin-bottom: 10px;
+    }
+    .block-content {
+        width: 100%;
+        display: block;
+    }
+    .filter-btn .dot {
+        width: 6px;
+        height: 6px;
+    }
+    .works-block {
+        margin-bottom: 40px;
+    }
+    .block-link {
+        margin: 0 auto;
+        width: 125px;
+    }
+    .block-icon {
+        width: 20px;
+        height: 20px;
+    }
+    .block-btn {
+        font-size: 14px;
+    }
+    .work-show {
+        margin-top: 0;
+    }
+    .work-show--btn {
+        font-size: 14px;
+        width: 120px;
+    }
+}
+@media (max-width: 640px) {
+    .works-top {
+        padding-top: 25px;
+    }
+    .works-desc {
+        font-size: 16px;
+        line-height: 20px;
+        margin-bottom: 20px;
+    }
+    .filter-buttons {
+        padding: 10px 20px;
+        width: 267px;
+    }
+}

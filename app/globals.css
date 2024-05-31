@@ -1,0 +1,153 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    max-width: 1711px;
+    color: #191b1e;
+}
+.scale-animation {
+    @apply hover:scale-125 transition-all duration-700;
+}
+h1 {
+    font-size: 70px;
+}
+h2 {
+    font-size: 50px;
+    font-weight: 600;
+    line-height: 90px;
+    text-transform: uppercase;
+}
+.cursor-style {
+    cursor: none !important;
+}
+.container {
+    max-width: 1360px;
+    margin: 0 auto;
+}
+.box-top {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding-top: 57px;
+}
+.box-desc {
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 35px;
+    text-transform: uppercase;
+    margin-bottom: 52px;
+}
+.link {
+    border-bottom: 2px solid transparent;
+    transition: border-bottom-color 0.3s ease-in-out;
+}
+
+.link:hover {
+    border-bottom-color: #000;
+}
+footer {
+    width: 100%;
+
+    text-align: center;
+    background-color: #121315;
+}
+.footer-text {
+    color: white;
+    font-size: 14px;
+    font-weight: 400;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.navFix {
+  position: fixed;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: opacity 0.3s, visibility 0.3s;
+  opacity: 0;
+  visibility: hidden;
+  z-index: 1000;
+}
+
+.navFix.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.navFix__link {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  text-decoration: none;
+}
+
+.navFix__circle {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: transparent;
+  transition: background 0.3s;
+  border: 1px solid #fff;
+}
+
+.navFix__text {
+  position: absolute;
+  left: -80px;
+  white-space: nowrap;
+  color: white;
+  opacity: 0;
+  transform: translateX(-20px);
+  transition: opacity 0.3s, transform 0.3s;
+}
+
+.navFix__link:hover .navFix__text {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.navFix__link.active .navFix__circle {
+  background: white;
+}
+@media (max-width: 1200px) {
+}
+@media (max-width: 1024px) {
+    h2 {
+        font-size: 24px;
+        font-weight: 600;
+        text-transform: uppercase;
+        line-height: 23px;
+        padding-bottom: 20px;
+    }
+}
+@media (max-width: 768px) {
+    .cursor-style {
+        cursor: auto !important;
+        pointer-events: all;
+    }
+    h2 {
+        font-size: 40px;
+        line-height: 60px;
+    }
+    .box-top {
+        padding-top: 30px;
+    }
+    .box-desc {
+        font-size: 18px;
+        line-height: 24px;
+        margin-bottom: 30px;
+    }
+}
+@media (max-width: 640px) {
+    h2 {
+        font-size: 30px;
+        line-height: 45px;
+    }
+    .box-top {
+        padding-top: 30px;
+    }
+}

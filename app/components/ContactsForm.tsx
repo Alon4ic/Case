@@ -30,7 +30,7 @@ const ContactsForm: FC = () => {
     return (
         <div>
             <p className="text-white contacts-right--text">
-                Let\'s talk about our future collaboration.
+                Let&apos;s talk about our future collaboration.
             </p>
             <form onSubmit={handleSubmit(onSubmit)}>
                 <div className="mb-5">

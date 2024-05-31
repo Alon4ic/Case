@@ -1,23 +1,22 @@
 'use client';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, ReactNode } from 'react';
 import { Poppins } from 'next/font/google';
 import './globals.css';
 import Preloader from './components/Preloader';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import MousePointer from './components/mousePointer/MousePointer';
-import NavFix from './components/NavFix';
 
 const poppins = Poppins({
     subsets: ['latin'],
     weight: ['200', '300', '400', '500', '600', '700'],
 });
 
-export default function RootLayout({
-    children,
-}: Readonly<{
-    children: React.ReactNode;
-}>) {
+interface RootLayoutProps {
+    children: ReactNode;
+}
+
+const RootLayout: React.FC<RootLayoutProps> = ({ children }) => {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
@@ -42,7 +41,6 @@ export default function RootLayout({
                     <>
                         <MousePointer />
                         <Header />
-                        <NavFix />
                         {children}
                         <Footer />
                     </>
@@ -50,4 +48,6 @@ export default function RootLayout({
             </body>
         </html>
     );
-}
+};
+
+export default RootLayout;

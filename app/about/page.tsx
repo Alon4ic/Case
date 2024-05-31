@@ -7,11 +7,11 @@ import './aboutPage.css';
 
 const slides = [
     {
-        title: `Hi! I<span class="text-reds">'</span>m <br/> Olena Redko`,
-        subtitle: "I'm front-end developer from Ukraine.",
+        title: `Hi! I<span class="text-reds">&apos;</span>m <br/> Olena Redko`,
+        subtitle: 'I&apos;m front-end developer from Ukraine.',
     },
     {
-        title: `Let<span class="text-reds">'</span>s work <br /> together!`,
+        title: `Let<span class="text-reds">&apos;</span>s work <br /> together!`,
         subtitle: 'Build a unique, innovative and amazing project.',
     },
 ];
@@ -19,10 +19,9 @@ const slides = [
 const AboutPage: React.FC = () => {
     const [currentSlide, setCurrentSlide] = useState(0);
     const [typedText, setTypedText] = useState('');
-    const [currentCharIndex, setCurrentCharIndex] = useState(0);
     const [isTyping, setIsTyping] = useState(true);
 
-    const fullText = `I am ready to create a website or application for you with intuitive navigation, transitions, and animations. I write clean code, minify, and use other techniques to make a site or app load quickly.<br /><br />With so many different devices and platforms coming out, it's important that your website or app is accessible to users with different operating systems, browsers, and screen sizes. I will ensure your site is compatible with a range of devices and platforms, ensuring a seamless experience for all users.`;
+    const fullText = `I am ready to create a website or application for you with intuitive navigation, transitions, and animations. I write clean code, minify, and use other techniques to make a site or app load quickly.<br /><br />With so many different devices and platforms coming out, it&apos;s important that your website or app is accessible to users with different operating systems, browsers, and screen sizes. I will ensure your site is compatible with a range of devices and platforms, ensuring a seamless experience for all users.`;
 
     useEffect(() => {
         const interval = setInterval(() => {
@@ -45,31 +44,32 @@ const AboutPage: React.FC = () => {
     }, []);
 
     useEffect(() => {
-        const typingInterval = 30;
+        let currentCharIndex = 0;
+        const typingInterval = 30; // Интервал для печати символов
+        let typingTimer: NodeJS.Timeout;
 
         const typeWriter = () => {
+            setTypedText((prev) => prev + fullText.charAt(currentCharIndex));
+            currentCharIndex++;
+
             if (currentCharIndex < fullText.length) {
-                setTypedText((prev) => prev + fullText[currentCharIndex]);
-                setCurrentCharIndex((prev) => prev + 1);
+                typingTimer = setTimeout(typeWriter, typingInterval);
             } else {
                 setIsTyping(false);
             }
         };
 
         if (isTyping) {
-            const timer = setTimeout(typeWriter, typingInterval);
-            return () => clearTimeout(timer);
-        }
-    }, [currentCharIndex, isTyping, fullText]);
-
-    useEffect(() => {
-        if (!isTyping) {
+            typingTimer = setTimeout(typeWriter, typingInterval);
+        } else {
             setTypedText(fullText); // Убедитесь, что весь текст отображается после завершения печати
         }
+
+        return () => clearTimeout(typingTimer);
     }, [isTyping, fullText]);
 
     return (
-        <div className="home container" id="home">
+        <div className="home container">
             <div className="home-left md:w-[66%] w-full">
                 <div className="absolute home-content">
                     <h1
